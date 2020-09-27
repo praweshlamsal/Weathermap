@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Temprature</string>
+    <string name="API_KEY">3273a72528cfbb7611ddf39df56d4bea</string>
+    <string name="Base_URL">http://api.openweathermap.org/data/2.5/</string>
+</resources>
