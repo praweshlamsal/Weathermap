@@ -12,7 +12,7 @@ public interface ApiService {
                               @Query("appid") String appkey);
 
     @GET(Url_api.current_temprature)
-    Call<JsonObject> getCurrentTemprature(@Query("lan") String latitude,
+    Call<JsonObject> getCurrentTemprature(@Query("lat") String latitude,
                                           @Query("lon") String longitude,
                                           @Query("appid") String appkey);
 }

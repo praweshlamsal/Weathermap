@@ -3,6 +3,7 @@ package com.happyfeetexecutivepvtltd.temprature.base;
 import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -25,11 +26,6 @@ public class SetRequest {
         return this;
     }
 
-
-    public static boolean isNetworkConnected(Context context) {
-        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        return cm.getActiveNetworkInfo() != null;
-    }
 
     public static boolean isNetworkConnected(Activity context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -58,18 +54,20 @@ public class SetRequest {
                                 r.onError("Server Error. Please try again later.");
                                 break;
                             default:
-                                r.onError("Please try again");
+                                r.onError("Please enter valid city name.");
                                 break;
                         }
                     }
 
                     @Override
                     public void onFailure(Call<JsonObject> call, Throwable t) {
+                        Log.d("okayman",t.toString());
                         r.onError("Failed to receive data");
                     }
                 });
             } else {
-                r.onError("No internet Connection");
+
+                r.onError("No internet Connection.");
             }
         }
         return this;

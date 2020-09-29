@@ -58,24 +58,88 @@
 
         </LinearLayout>
 
-        <
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/current_temp"
-            android:layout_width="match_parent"
-            android:layout_height="140dp"
-            android:layout_below="@id/top_bar"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/searching"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/top_bar"
             android:background="@color/white"
-            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardElevation="@dimen/cardview_default_elevation">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:background="@color/transparent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/et_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    app:placeholderText="Search"
+                    app:placeholderTextColor="@color/cardview_shadow_start_color"
+                    app:boxStrokeColor="@color/holo_orange"
+                    app:boxStrokeWidth="1dp"
+                    android:background="@color/transparent"
+                    app:startIconDrawable="@drawable/ic_search"
+                    android:descendantFocusability="beforeDescendants"
+                    android:focusableInTouchMode="true"
+                    app:startIconTint="@color/colorPrimary">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/search_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="text"
+                        android:focusable="true"
+                        android:hint="Search"
+
+                        android:textColorHint="@color/black"
+                        android:background="@color/transparent"
+                        android:maxLines="1"
+                        android:textColor="@color/black"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/searchBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="16dp"
+                    android:text="Search"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                    android:textColor="@android:color/white"
+                    android:theme="@style/MatButton" />
+            </RelativeLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/current_temp"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_below="@+id/searching"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/white"
+            android:focusableInTouchMode="true"
             app:cardElevation="@dimen/cardview_default_elevation">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:orientation="horizontal">
 
                 <RelativeLayout
@@ -95,10 +159,12 @@
                             android:layout_width="15dp"
                             android:layout_height="15dp"
                             android:layout_marginBottom="16dp"
-                            android:src="@drawable/ic_up" />
+                            android:src="@drawable/ic_up"
+                            android:tint="@color/holo_orange" />
 
                         <TextView
                             android:id="@+id/tv_rising"
+                            android:textColor="@color/lightblack"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_toRightOf="@+id/upper_arrow"
@@ -119,11 +185,13 @@
                             android:layout_width="15dp"
                             android:layout_height="15dp"
                             android:layout_marginBottom="18dp"
-                            android:src="@drawable/ic_down" />
+                            android:src="@drawable/ic_down"
+                            android:tint="@color/holo_orange" />
 
                         <TextView
                             android:id="@+id/tv_lower"
                             android:layout_width="wrap_content"
+                            android:textColor="@color/lightblack"
                             android:layout_height="wrap_content"
                             android:layout_toRightOf="@+id/down_arrow"
                             android:gravity="top"
@@ -138,21 +206,24 @@
                         android:layout_marginLeft="16dp"
                         android:paddingTop="16dp"
                         android:text="24.2°F"
+                        android:textColor="@color/lightblack"
                         android:textSize="35sp" />
 
                     <ImageView
                         android:id="@+id/ic_image"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginLeft="16dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginLeft="8dp"
                         android:layout_toRightOf="@+id/tv_temprature" />
 
                     <TextView
                         android:id="@+id/tv_temprature_type"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/ic_image"
-                        android:layout_marginLeft="8dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginTop="24dp"
+                        android:textColor="@color/lightblack"
                         android:layout_toRightOf="@id/tv_temprature"
                         android:text="Rainy" />
                 </RelativeLayout>
@@ -167,6 +238,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
                         android:orientation="vertical">
 
                         <RelativeLayout
@@ -180,6 +252,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginRight="2dp"
+                                android:textColor="@color/lightblack"
                                 android:text="Sunrise : "
                                 android:textStyle="bold" />
 
@@ -189,6 +262,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginRight="10dp"
+                                android:textColor="@color/lightblack"
                                 android:layout_toRightOf="@id/sunrise_text"
                                 android:text="20" />
 
@@ -216,6 +290,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginRight="2dp"
+                                android:textColor="@color/lightblack"
                                 android:text="Sunset  : "
                                 android:textStyle="bold" />
 
@@ -225,6 +300,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"
                                 android:layout_marginRight="10dp"
+                                android:textColor="@color/lightblack"
                                 android:layout_toRightOf="@id/sunset_text"
                                 android:text="20" />
 
@@ -239,9 +315,9 @@
                     </LinearLayout>
                 </RelativeLayout>
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/current_temp"
@@ -250,30 +326,80 @@
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
             android:background="@color/white"
-            app:cardCornerRadius="16dp"
+            android:focusable="true"
+            app:cardBackgroundColor="@color/white"
+            android:focusableInTouchMode="true"
             app:cardElevation="@dimen/cardview_default_elevation">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
-                <ScrollView
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="16dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_day"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TUE"
+                        android:textColor="@color/holo_orange"
+                        android:textSize="48sp" />
+
+                    <TextView
+                        android:id="@+id/tv_month"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_day"
+                        android:layout_gravity="center_horizontal"
+                        android:text="21 JUL"
+                        android:textColor="@color/lightblack"
+                        android:textSize="24sp" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end"
+                    android:layout_marginRight="16dp"
+                    android:padding="16dp"
+                    android:orientation="vertical">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true" />
+                </RelativeLayout>
 
 
-                </ScrollView>
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
         <ImageView
-            android:id="@+id/search"
+            android:id="@+id/reload"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_margin="16dp"
-            android:src="@drawable/ic_search"
+            android:src="@drawable/refresh"
+            android:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/relocate"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_margin="16dp"
+            android:src="@drawable/location"
             android:tint="@color/white" />
 
     </RelativeLayout>

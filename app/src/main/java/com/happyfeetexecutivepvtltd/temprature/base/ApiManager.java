@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiManager {
     public static ApiService apiService;
-    public static final String URL = "http://api.openweathermap.org/data/2.5/";
+    public static final String URL = "https://api.openweathermap.org/data/2.5/";
     public static ApiService getApiService(){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(URL)
