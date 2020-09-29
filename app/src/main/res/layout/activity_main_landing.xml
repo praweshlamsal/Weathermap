@@ -25,6 +25,7 @@
                 android:layout_height="wrap_content"
                 android:text="Weather"
                 android:textAllCaps="true"
+                android:fontFamily="@fonts"
                 android:textColor="@color/white"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -37,10 +38,10 @@
 
                 <ImageView
                     android:id="@+id/placeholder"
-                    android:layout_width="10dp"
-                    android:layout_height="10dp"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="8dp"
+                    android:layout_marginRight="4dp"
                     android:src="@drawable/placeholder"
                     android:tint="@color/white" />
 
@@ -368,7 +369,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="end"
-                    android:layout_marginRight="16dp"
+                    android:layout_marginLeft="16dp"
                     android:padding="16dp"
                     android:orientation="vertical">
 
